@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';import 'package:home_services/core/app_export.dart';import 'package:home_services/widgets/app_bar/appbar_leading_iconbutton.dart';import 'package:home_services/widgets/app_bar/appbar_title.dart';import 'package:home_services/widgets/app_bar/custom_app_bar.dart';class ManageAddressOneScreen extends StatelessWidget {const ManageAddressOneScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { mediaQueryData = MediaQuery.of(context); return SafeArea(child: Scaffold(appBar: _buildAppBar(context), body: Container(width: double.maxFinite, padding: EdgeInsets.symmetric(vertical: 41.v), child: Column(children: [Align(alignment: Alignment.centerLeft, child: Padding(padding: EdgeInsets.only(left: 16.h), child: Row(children: [CustomImageView(imagePath: ImageConstant.imgFramePrimary, height: 16.adaptSize, width: 16.adaptSize, margin: EdgeInsets.only(top: 2.v, bottom: 1.v)), Padding(padding: EdgeInsets.only(left: 8.h), child: Text("Add another address", style: CustomTextStyles.titleMediumPrimary_1))]))), SizedBox(height: 23.v), Divider(), SizedBox(height: 22.v), _buildHomeSection(context), SizedBox(height: 21.v), Divider(), SizedBox(height: 5.v)])))); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar(BuildContext context) { return CustomAppBar(leadingWidth: 61.h, leading: AppbarLeadingIconbutton(imagePath: ImageConstant.imgArrowLeft, margin: EdgeInsets.only(left: 16.h, top: 5.v, bottom: 5.v), onTap: () {onTapArrowLeft(context);}), centerTitle: true, title: AppbarTitle(text: "Manage Address")); } 
+/// Section Widget
+Widget _buildHomeSection(BuildContext context) { return Container(padding: EdgeInsets.symmetric(horizontal: 16.h), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Padding(padding: EdgeInsets.only(right: 4.h), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text("Home", style: CustomTextStyles.titleMediumSemiBold), CustomImageView(imagePath: ImageConstant.imgNotification, height: 18.adaptSize, width: 18.adaptSize, onTap: () {onTapImgNotification(context);})])), SizedBox(height: 9.v), Container(width: 309.h, margin: EdgeInsets.only(right: 33.h), child: Text("Plot no.209, Kavuri Hills, Madhapur, Telangana 500033\nPh: +91234567890", maxLines: 3, overflow: TextOverflow.ellipsis, style: CustomTextStyles.titleSmallGray60001.copyWith(height: 1.50)))])); } 
+
+/// Navigates back to the previous screen.
+onTapArrowLeft(BuildContext context) { Navigator.pop(context); } 
+/// Navigates to the manageAddressScreen when the action is triggered.
+onTapImgNotification(BuildContext context) { Navigator.pushNamed(context, AppRoutes.manageAddressScreen); } 
+ }
